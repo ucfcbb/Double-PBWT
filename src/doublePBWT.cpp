@@ -72,8 +72,6 @@ void startScan(std::string vcfFile, std::vector<std::string> &individuals, std::
             X_lag = readGenotype(inFile_lag);
             laggingAlgo3(X_lag, L, ppa_lag, div_lag, k_lag, N, block_info, group_info, individuals,
                          site, genDist, k_lead, 0, div_lead, ppa_lead);
-            // laggingAlgo3(X_lag, L, ppa_lag, div_lag, k_lag, N, block_info, group_info, individuals,
-            //              site, genDist, k_lead);
             k_lag += 1;
             continue;
         }
@@ -107,8 +105,6 @@ void startScan(std::string vcfFile, std::vector<std::string> &individuals, std::
             X_lag = readGenotype(inFile_lag);
             laggingAlgo3(X_lag, L, ppa_lag, div_lag, k_lag, N, block_info, group_info, individuals,
                          site, genDist, k_lead, 0, div_lead, ppa_lead);
-            // laggingAlgo3(X_lag, L, ppa_lag, div_lag, k_lag, N, block_info, group_info, individuals,
-            //              site, genDist, k_lead);
             k_lag += 1;
         }
         else
@@ -135,8 +131,6 @@ void startScan(std::string vcfFile, std::vector<std::string> &individuals, std::
             X_lag = readGenotype(inFile_lag);
             laggingAlgo3(X_lag, L, ppa_lag, div_lag, k_lag, N, local_block_info, local_group_info, individuals,
                          site, genDist, k_lead, 0, div_lead, ppa_lead);
-            // laggingAlgo3(X_lag, L, ppa_lag, div_lag, k_lag, N, local_block_info,
-            //              local_group_info, individuals, site, genDist, k_lead);
             k_lag += 1;
             for (auto i = 0; i < M; ++i)
             {
@@ -146,7 +140,6 @@ void startScan(std::string vcfFile, std::vector<std::string> &individuals, std::
         }
 
         // re-calibrate block_info and group_info for next k_lead
-        // switch_info.clear();
         for (auto i = 0; i < M; ++i)
         {
             group_info[i] = 0;
@@ -297,7 +290,6 @@ void leadingPBWT(std::vector<char> &X_lead, int32_t k_lag, std::vector<int32_t> 
     // Boundary Case
     if (k_lead > N - 1)
     {
-        // std::cout << "Boundary Case!! \n";
         for (int32_t index = div_lead.size() - 1; index > 0; --index)
         {
             if (find_block_start)
@@ -376,7 +368,6 @@ void leadingPBWT(std::vector<char> &X_lead, int32_t k_lag, std::vector<int32_t> 
                 else
                 {
                     curr_indiv.clear();
-                    // continue;
                 }
             }
             else
@@ -432,9 +423,8 @@ void leadingPBWT(std::vector<char> &X_lead, int32_t k_lag, std::vector<int32_t> 
         div_lead = d;
         div_lead.insert(div_lead.end(), e.begin(), e.end());
     }
-
-    // std::cout << "End of Leading PBWT!\n";
 }
+
 // Overlap
 void leadingPBWT(std::vector<char> &X_lead, int32_t k_lag, std::vector<int32_t> &ppa_lead,
                  std::vector<int32_t> &div_lead, int32_t k_lead, int32_t N,
@@ -705,7 +695,6 @@ void laggingAlgo3(std::vector<char> &X_lag, double L, std::vector<int32_t> &ppa_
         div_lag = d;
         div_lag.insert(div_lag.end(), e.begin(), e.end());
     }
-    // std::cout << "End of Lagginb PBWT!\n";
 }
 
 int32_t findStartPosMatch(int32_t indv1, int32_t indv2, const std::vector<int32_t> &div, const std::vector<int32_t> &ppa)
@@ -1009,7 +998,6 @@ void updateBlockGroup(std::vector<int32_t> &div_lead, std::vector<int32_t> &ppa_
                 else
                 {
                     curr_indiv.clear();
-                    // continue;
                 }
             }
             else
@@ -1128,7 +1116,6 @@ std::map<int32_t, double> getGenDist(std::string genMapPath)
         std::istringstream is(line);
         std::string word;
         int32_t pos = 0;
-        // int32_t key = 0;
         double value = 0.0;
         while (is >> word)
         {
