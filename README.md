@@ -17,6 +17,8 @@ Possible error on `makedepend` will require the user to install it(on Ubuntu) us
 Usage: `./d2pbwt_overlap_genetic <vcf-file> <genetic-mapping-file> <min-length-in-cM> <max-overlap-in-sites>`
 
 The output file name should be specified by the user as shown in the example below:
+### Strict Boundary Run
+If `0` is used for `<max-overlap-in-sites>` parameter, it'll run the doublePBWT for juxtaposted IBD boundaries case.
 
 ## Example
 
