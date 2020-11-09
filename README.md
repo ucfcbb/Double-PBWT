@@ -4,6 +4,8 @@ Double-PBWT: Haplotype Switch-Point Detection by Double PBWT
 
 # To Run
 
+**Note**: The code was compiled on an `Ubuntu 18.04` machine, running `7.5.0` version of `g++` and `C++17` standard.
+
 1. Change into the `/src/` directory.
 2. Run the `make` command in a terminal from within the directory. 
 `<your-home-path>/doublePBWT/src$ make`
